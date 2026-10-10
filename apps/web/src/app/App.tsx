@@ -1,0 +1,8 @@
+// Root component. Routing and app-wide providers will be composed here.
+export function App() {
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-100">
+      <h1 className="text-4xl font-bold">Typing Race Royale</h1>
+    </main>
+  )
+}

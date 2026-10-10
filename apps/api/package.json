@@ -1,0 +1,31 @@
+{
+  "name": "@trr/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --env-file=../../.env --watch src/index.ts",
+    "start": "bun --env-file=../../.env src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "db:make": "bun --env-file=../../.env run kysely migrate:make",
+    "db:migrate": "bun --env-file=../../.env run kysely migrate:latest",
+    "db:rollback": "bun --env-file=../../.env run kysely migrate:down",
+    "db:seed": "bun --env-file=../../.env run kysely seed:run"
+  },
+  "dependencies": {
+    "@trr/shared": "workspace:*",
+    "hono": "^4.13.13",
+    "kysely": "^0.29.6",
+    "pg": "^8.23.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.2",
+    "@types/pg": "^8.23.1",
+    "kysely-ctl": "^0.21.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}

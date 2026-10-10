@@ -1,0 +1,23 @@
+{
+  "name": "typing-race-royale",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/api",
+    "packages/shared"
+  ],
+  "scripts": {
+    "setup": "bun install && npm --prefix apps/web install",
+    "dev:api": "bun run --cwd apps/api dev",
+    "dev:web": "npm --prefix apps/web run dev",
+    "db:migrate": "bun run --cwd apps/api db:migrate",
+    "typecheck": "tsc -p tsconfig.json && bun run --cwd packages/shared typecheck && bun run --cwd apps/api typecheck && npm --prefix apps/web run typecheck",
+    "test": "bun run --cwd apps/api test && npm --prefix apps/web test",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  }
+}
